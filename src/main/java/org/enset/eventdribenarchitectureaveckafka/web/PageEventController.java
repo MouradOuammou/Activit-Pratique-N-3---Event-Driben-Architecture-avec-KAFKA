@@ -14,7 +14,7 @@ public class PageEventController {
     @GetMapping("/publish/{topic}/{name}")
     public PageEvent publish(@PathVariable String topic, @PathVariable String name) {
         PageEvent pageEvent = new PageEvent(name, "user1", new java.util.Date(), 1000);
-        streamBridge.send("topic",pageEvent);
-        return  PageEvent;
+        streamBridge.send(topic,pageEvent);
+        return  pageEvent;
     }
 }
